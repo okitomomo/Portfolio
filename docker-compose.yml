@@ -1,0 +1,9 @@
+services:
+  front:
+    container_name: front
+    build: ./docker/nginx
+    ports:
+      - "127.0.0.1:8880:80"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
