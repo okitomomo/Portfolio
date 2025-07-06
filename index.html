@@ -9,7 +9,7 @@
 <body class="font-def bg-[#0c0c0c]">
     <div class=" text-white mx-auto bg-[#0c0c0c] max-w-[1400px]">
         <!-- メニュー -->
-        <nav class="flex flex-row font-eng min-h-[400px]">
+        <nav class="flex flex-row font-eng min-h-[470px]">
             <div class="bg-[#272626] [writing-mode:vertical-rl] rotate-180 p-2 py-4">
                 <div class="text-7xl tracking-wider">
                     Portfolio
@@ -18,42 +18,42 @@
             </div>
             <div class="group relative flex flex-1 cursor-pointer">
                 <div class="absolute inset-0 bg-[url('img/header_01.jpg')] bg-cover bg-left grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
-                <div class="relative z-10 flex w-full flex-col items-center group-hover:text-stroke">
-                    <div class="text-7xl font-num mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">01</div>
+                <div class="absolute bottom-20 z-10 flex w-full flex-col items-center group-hover:text-stroke">
+                    <div class="text-7xl font-num transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">01</div>
                     <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">About this</div>
                 </div>
             </div>
             <div class="group relative flex flex-1 cursor-pointer">
                 <div class="absolute inset-0 bg-[url('img/header_02.jpg')] bg-cover bg-[60%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
-                <div class="relative z-10 flex w-full flex-col items-center group-hover:text-stroke">
+                <div class="absolute bottom-20 z-10 flex w-full flex-col items-center group-hover:text-stroke">
                     <div class="text-7xl font-num mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">02</div>
                     <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">About me</div>
                 </div>
             </div>
             <div class="group relative flex flex-1 cursor-pointer">
                 <div class="absolute inset-0 bg-[url('img/header_03.jpg')] bg-cover bg-[40%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
-                <div class="relative z-10 flex w-full flex-col items-center group-hover:text-stroke">
+                <div class="absolute bottom-20 z-10 flex w-full flex-col items-center group-hover:text-stroke">
                     <div class="text-7xl font-num mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">03</div>
                     <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">Skill Set</div>
                 </div>
             </div>
             <div class="group relative flex flex-1 cursor-pointer">
                 <div class="absolute inset-0 bg-[url('img/header_04.jpg')] bg-cover bg-[45%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
-                <div class="relative z-10 flex w-full flex-col items-center group-hover:text-stroke">
+                <div class="absolute bottom-20 z-10 flex w-full flex-col items-center group-hover:text-stroke">
                     <div class="text-7xl font-num mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">04</div>
                     <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">Production</div>
                 </div>
             </div>
             <div class="group relative flex flex-1 cursor-pointer">
                 <div class="absolute inset-0 bg-[url('img/header_05.jpg')] bg-cover bg-[40%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
-                <div class="relative z-10 flex w-full flex-col items-center group-hover:text-stroke">
+                <div class="absolute bottom-20 z-10 flex w-full flex-col items-center group-hover:text-stroke">
                     <div class="text-7xl font-num mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">05</div>
                     <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">Qualification</div>
                 </div>
             </div>
             <div class="group relative flex flex-1 cursor-pointer">
                 <div class="absolute inset-0 bg-[url('img/header_06.jpg')] bg-cover bg-[60%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
-                <div class="relative z-10 flex w-full flex-col items-center group-hover:text-stroke">
+                <div class="absolute bottom-20 z-10 flex w-full flex-col items-center group-hover:text-stroke">
                     <div class="text-7xl font-num mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">06</div>
                     <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">My life</div>
                 </div>
@@ -81,7 +81,7 @@
                             <img src="img/me.jpg" alt="沖田 知広のプロフィール写真" class="rounded-lg shadow-lg">
                         </div>
                         <!-- Details Column -->
-                        <div class="grid grid-cols-[110px_1fr] gap-x-6 gap-y-4 text-sm items-baseline">
+                        <div class="grid grid-cols-[110px_1fr] gap-x-6 gap-y-2 text-sm items-baseline">
                             <!-- Row 1: 名前 -->
                             <div class="flex justify-between font-bold">
                                 <span>名前</span>
@@ -117,17 +117,82 @@
 
                     <div class="py-4">
                         <div class="text-lg font-bold">ひとこと</div>
-                        <div class="leading-relaxed text-sm font-thin">
+                        <div class="leading-relaxed text-sm font-thin p-2">
                             <p>世のシステムエンジニアやプログラマーのイメージを払拭する、「明るいエンジニア」をモットーに活動中です。好きなことを仕事にしたタイプなので、クソコードの保守以外でプログラミングが苦痛なことはありません。</p>
                             <p>仕事のスタイルとしては、とにかくコミニュケーションを取りながら良い関係で楽しく仕事したいです。忙しいのは好きです。</p>
                             <p>生活は超夜行性で、趣味に書いたことをしているか、仕事して毎日夜ふかししてます。</p>
-
                         </div>
                     </div>
                 </div>
             </section>
 
-            
+            <!-- Production -->
+            <section class="px-6 py-12">
+                <div class="text-2xl font-eng">Production</div>
+                <div class="flex flex-wrap justify-center px-4 py-12 gap-4">
+                    <div class="flex flex-col bg-white text-black min-w-[240px]">
+                        <div class="bg-gray-700 w-max min-h-32">
+
+                        </div>
+                        <div class="p-2">
+                            <div class="py-4 font-bold">プロジェクト名折り返し</div>
+                            <div class="text-sm ">
+                                <p>text text text text text text</p>
+                                <p>text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col bg-white text-black min-w-[240px]">
+                        <div class="bg-gray-700 w-max min-h-32">
+
+                        </div>
+                        <div class="p-2">
+                            <div class="py-4 font-bold">プロジェクト名折り返し</div>
+                            <div class="text-sm ">
+                                <p>text text text text text text</p>
+                                <p>text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col bg-white text-black min-w-[240px]">
+                        <div class="bg-gray-700 w-max min-h-32">
+
+                        </div>
+                        <div class="p-2">
+                            <div class="py-4 font-bold">プロジェクト名折り返し</div>
+                            <div class="text-sm ">
+                                <p>text text text text text text</p>
+                                <p>text text text text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row justify-end cursor-pointer font-eng text-sm">
+                    <div class="relative border-b border-white pr-6 after:absolute after:bottom-[-1px] after:right-0 after:h-px after:w-3 after:-rotate-[310deg] after:bg-white after:content-[''] after:origin-right">VIEW MORE</div>
+                </div>
+            </section>
+
+            <!-- Qualification -->
+            <section class="bg-[#191919] px-6 py-12">
+                <div class="text-2xl font-eng mb-8">Qualification</div>
+                <div class="max-w-5xl mx-auto px-12">
+                    <div class="grid grid-cols-[200px_1fr] gap-x-6 gap-y-2 text-sm items-baseline font-thin mx-auto w-fit">
+                        <div>2012年11月</div>
+                        <div>普通自動車第一種免許 取得</div>
+
+                        <div>2012年12月</div>
+                        <div>基本情報技術者試験 合格</div>
+
+                        <div>2014年12月</div>
+                        <div>応用情報技術者試験 合格</div>
+
+                        <div>現在</div>
+                        <div>データベーススペシャリスト試験 勉強中･･･</div>
+                    </div>
+                </div>
+            </section>
+
+
         </div>
         
     </div>
