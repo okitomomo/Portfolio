@@ -1,6 +1,7 @@
 {
   "name": "tailwind-vite-docker",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite"
   },

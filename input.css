@@ -10,6 +10,7 @@
 @layer utilities {
   .text-stroke {
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #272626;
+    -webkit-text-stroke-color: #ff3c56;
   }
 }
+
