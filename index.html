@@ -137,7 +137,7 @@
             <section id="production" class="px-6 py-12">
                 <div class="text-2xl font-eng">Production</div>
                 <div class="flex flex-wrap justify-center px-4 py-12 gap-4">
-                    <div class="flex flex-col bg-white text-black min-w-[240px]">
+                    <div class="flex flex-col bg-white text-black min-w-[240px] cursor-pointer">
                         <div class="bg-gray-700 w-max min-h-32">
 
                         </div>
@@ -198,53 +198,28 @@
                 <div class="relative py-12 w-[90%] m-auto">
                     <!-- 縦線（タイムライン） -->
                     <div class="absolute left-1/2 top-0 -translate-x-1/2 w-px h-full bg-white"></div>
-
-                    <div class="w-1/2 slide-left opacity-0 -translate-x-60 transition-all [transition-duration:1200ms]">
-                        <div class="text-md border-b border-white py-4 relative
-                            after:content-[''] after:absolute after:w-3 after:h-3 after:bg-white after:rounded-full
-                            after:-bottom-1.5 after:-right-1.5">
-                            1992年11月 札幌で誕生
+                    <div class="hidden">
+                        <div id="template-mylife-left" class="w-1/2 -mt-16 slide-left opacity-0 -translate-x-60 transition-all [transition-duration:1200ms]">
+                            <div class="text-md border-b border-white py-4 relative
+                                after:content-[''] after:absolute after:w-3 after:h-3 after:bg-white after:rounded-full
+                                after:-bottom-1.5 after:-right-1.5">
+                                <span class="ymd"></span>
+                                <span class="title ml-3"></span>
+                            </div>
+                            <div class="caption text-sm pl-1 pr-8 py-6 font-thin"></div>
                         </div>
-                
-                        <div class="text-sm pl-1 pr-8 py-6 font-thin">
-                            あああああああああああああああああああああああああああああああ。
-                        </div>
-                    </div>
-
-                    <div class="w-1/2 ml-auto -mt-16 slide-right opacity-0 translate-x-60 transition-all [transition-duration:1200ms]">
-                        <div class="text-right text-md border-b border-white py-4 relative
-                            after:content-[''] after:absolute after:w-3 after:h-3 after:bg-white after:rounded-full
-                            after:-bottom-1.5 after:-left-1.5">
-                            1992年11月 札幌で誕生
-                        </div>
-                
-                        <div class="text-sm pr-1 pl-8 py-6 font-thin">
-                            あああああああああああああああああああああああああああああああ。
+                        <div id="template-mylife-right" class="w-1/2 ml-auto -mt-16 slide-right opacity-0 translate-x-60 transition-all [transition-duration:1200ms]">
+                            <div class="text-right text-md border-b border-white py-4 relative
+                                after:content-[''] after:absolute after:w-3 after:h-3 after:bg-white after:rounded-full
+                                after:-bottom-1.5 after:-left-1.5">
+                                <span class="ymd"></span>
+                                <span class="title ml-3"></span>
+                            </div>
+                            <div class="caption text-sm pr-1 pl-8 py-6 font-thin"></div>
                         </div>
                     </div>
-
-                    <div class="w-1/2 -mt-16 slide-left opacity-0 -translate-x-60 transition-all [transition-duration:1200ms]">
-                        <div class="text-md border-b border-white py-4 relative
-                            after:content-[''] after:absolute after:w-3 after:h-3 after:bg-white after:rounded-full
-                            after:-bottom-1.5 after:-right-1.5">
-                            1992年11月 札幌で誕生
-                        </div>
-                
-                        <div class="text-sm pl-1 pr-8 py-6 font-thin">
-                            あああああああああああああああああああああああああああああああ。
-                        </div>
-                    </div>
-
-                    <div class="w-1/2 ml-auto -mt-16 slide-right opacity-0 translate-x-60 transition-all [transition-duration:1200ms]">
-                        <div class="text-right text-md border-b border-white py-4 relative
-                            after:content-[''] after:absolute after:w-3 after:h-3 after:bg-white after:rounded-full
-                            after:-bottom-1.5 after:-left-1.5">
-                            1992年11月 札幌で誕生
-                        </div>
-                
-                        <div class="text-sm pr-1 pl-8 py-6 font-thin">
-                            あああああああああああああああああああああああああああああああ。
-                        </div>
+                    <div id="mylifes-data">
+                        <!-- データはJavaScript(JSON) から流す -->
                     </div>
                 </div>
             </section>

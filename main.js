@@ -22,7 +22,11 @@ window.addEventListener("scroll", () => {
     });
 });
 
+/**
+ * データの流し込み
+ */
 window.addEventListener("DOMContentLoaded", () => {
+    // Qualification
     fetch('data/qualifications.json')
         .then(res => res.json())
         .then(data => {
@@ -35,6 +39,33 @@ window.addEventListener("DOMContentLoaded", () => {
                 const divTitle = document.createElement('div');
                 divTitle.innerHTML = item.title;
                 container.appendChild(divTitle);
+            });
+        });
+    // My life
+    var count = 0;
+    fetch('data/mylifes.json')
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('mylifes-data');
+            data.forEach(item => {
+                // 左右どちらかでテンプレートを切り替え
+                var templateId = '';
+                if(count % 2 == 0) {
+                    templateId = 'template-mylife-left';
+                } else {
+                    templateId = 'template-mylife-right';
+                }
+                const contentTemplate = document.getElementById(templateId).cloneNode(true);
+
+                if(count == 0) {
+                    contentTemplate.classList.remove('-mt-16');
+                }
+
+                contentTemplate.querySelector('.ymd').innerHTML = item.ymd;
+                contentTemplate.querySelector('.title').innerHTML = item.title;
+                contentTemplate.querySelector('.caption').innerHTML = item.caption;
+                container.appendChild(contentTemplate)
+                count++;
             });
         });
 });
