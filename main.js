@@ -142,9 +142,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
                             item.classList.toggle('text-[#ff3c56]');
                             item.classList.toggle('text-white');
-
-
-                            
                             const content = item.parentElement.parentElement.querySelector('.acrd-cnt-history');
                             
                             if (content.style.maxHeight && content.style.maxHeight !== '0px') {
@@ -156,8 +153,15 @@ window.addEventListener("DOMContentLoaded", () => {
                                 // 他に開いているアコーディオンがある場合閉じる
                                 document.querySelectorAll('.acrd-btn-history').forEach(other => {
                                     if (other !== item) {
-                                        other.querySelector('.triangle').classList.remove('rotate-90');
+                                        const elmTriangle = other.querySelector('.triangle');
+                                        elmTriangle.classList.remove('-rotate-180');
+                                        elmTriangle.classList.remove('text-[#ff3c56]');
+                                        elmTriangle.classList.add('bg-[#ff3c56]');
+                                        elmTriangle.classList.add('hover:bg-[#c11b31]');
+                                        elmTriangle.classList.remove('bg-white');
+                                        elmTriangle.classList.remove('hover:bg-[#bbbbbb]');
                                         other.classList.remove('text-[#ff3c56]');
+                                        other.classList.add('text-white');
                                         other.parentElement.parentElement.querySelector('.acrd-cnt-history').style.maxHeight = '0px';
                                     }
                                 });
