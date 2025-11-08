@@ -41,6 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 container.appendChild(divTitle);
             });
         });
+
     // My life
     var count = 0;
     fetch('data/mylifes.json')
@@ -61,6 +62,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     contentTemplate.classList.remove('-mt-16');
                 }
 
+                contentTemplate.id = '';
                 contentTemplate.querySelector('.ymd').innerHTML = item.ymd;
                 contentTemplate.querySelector('.title').innerHTML = item.title;
                 contentTemplate.querySelector('.caption').innerHTML = item.caption;
@@ -68,4 +70,108 @@ window.addEventListener("DOMContentLoaded", () => {
                 count++;
             });
         });
+
+    // Work history
+    fetch('data/work_histories.json')
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('workhistories-data');
+            data.forEach(work => {
+                const tempWorkHistory = document.getElementById('template-workhistory').cloneNode(true);
+                tempWorkHistory.id = '';
+                tempWorkHistory.querySelector('.work-title').innerHTML = work.title;
+
+                work.contents.forEach(business => {
+                    const tempBusiness = document.getElementById('template-business').cloneNode(true);
+                    tempBusiness.id = '';
+                    tempBusiness.querySelector('.business-content').innerHTML = business.content;
+                    tempBusiness.querySelector('.business-achievement').innerHTML = business.achievement;
+                    tempBusiness.querySelector('.business-technology').innerHTML = business.technology;
+                    tempBusiness.querySelector('.business-database').innerHTML = business.database;
+                    tempBusiness.querySelector('.business-os').innerHTML = business.os;
+
+                    tempBusiness.querySelector('.business-database').innerHTML = business.database;
+                    tempBusiness.querySelector('.business-title').innerHTML = business.title;
+                    tempBusiness.querySelector('.business-from').innerHTML = business.from;
+                    tempBusiness.querySelector('.business-to').innerHTML = business.to;
+
+                    // 従事期間を求める
+                    var [startYear, startMonth] = business.from.split('/').map(Number);
+                    var [endYear, endMonth] = business.to.split('/').map(Number);
+                    if(business.to == '現在') {
+                        endYear = new Date().getFullYear();
+                        endMonth = new Date().getMonth() + 1;
+                    }
+
+                    var years = endYear - startYear;
+                    var months = endMonth - startMonth + 1;
+                    if(months <0){
+                        months += 12;
+                        years -= 1;
+                    } 
+                    var strYm;
+                    if(years > 0) {
+                        strYm = years + '年' + months + 'ヶ月';
+                    } else {
+                        strYm = months + 'ヶ月';
+                    }
+                    tempBusiness.querySelector('.business-ym').innerHTML = strYm;
+
+                    if(business.is_charge) {
+                        tempBusiness.querySelector('.business-pm').innerHTML = business.pm ? '●' : '';
+                        tempBusiness.querySelector('.business-pl').innerHTML = business.pl ? '●' : '';
+                        tempBusiness.querySelector('.business-rd').innerHTML = business.rd ? '●' : '';
+                        tempBusiness.querySelector('.business-bd').innerHTML = business.bd ? '●' : '';
+                        tempBusiness.querySelector('.business-dd').innerHTML = business.dd ? '●' : '';
+                        tempBusiness.querySelector('.business-cd').innerHTML = business.cd ? '●' : '';
+                        tempBusiness.querySelector('.business-test').innerHTML = business.test ? '●' : '';
+                        tempBusiness.querySelector('.business-op').innerHTML = business.op ? '●' : '';
+                    } else {
+                        tempBusiness.querySelector('table').remove();
+                    }
+
+                    tempBusiness.querySelectorAll('.acrd-btn-history').forEach(item => {
+                        item.addEventListener('click', () => {
+                            const elmTriangle = item.querySelector('.triangle');
+                            elmTriangle.classList.toggle('-rotate-180');
+                            elmTriangle.classList.toggle('text-[#ff3c56]');
+                            elmTriangle.classList.toggle('bg-[#ff3c56]');
+                            elmTriangle.classList.toggle('hover:bg-[#c11b31]');
+                            elmTriangle.classList.toggle('bg-white');
+                            elmTriangle.classList.toggle('hover:bg-[#bbbbbb]');
+
+                            item.classList.toggle('text-[#ff3c56]');
+                            item.classList.toggle('text-white');
+
+
+                            
+                            const content = item.parentElement.parentElement.querySelector('.acrd-cnt-history');
+                            
+                            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                                // 閉じるアニメーション
+                                content.style.maxHeight = '0px';
+                            } else {
+                                // 開くアニメーション（scrollHeightで実際の高さを取得）
+                                content.style.maxHeight = content.scrollHeight + 'px';
+                                // 他に開いているアコーディオンがある場合閉じる
+                                document.querySelectorAll('.acrd-btn-history').forEach(other => {
+                                    if (other !== item) {
+                                        other.querySelector('.triangle').classList.remove('rotate-90');
+                                        other.classList.remove('text-[#ff3c56]');
+                                        other.parentElement.parentElement.querySelector('.acrd-cnt-history').style.maxHeight = '0px';
+                                    }
+                                });
+                            }
+                        });
+                    });
+
+                    tempWorkHistory.querySelector('.businesses-data').appendChild(tempBusiness);
+                });
+                container.appendChild(tempWorkHistory);
+            });
+        });
 });
+
+/**
+ * アコーディオン
+ */

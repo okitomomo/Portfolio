@@ -51,10 +51,17 @@
                     <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">Qualification</div>
                 </div>
             </a>
-            <a href="#my-life" class="group relative flex flex-1 cursor-pointer">
-                <div class="absolute inset-0 bg-[url('img/header_06.jpg')] bg-cover bg-[60%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
+            <a href="#workhistory" class="group relative flex flex-1 cursor-pointer">
+                <div class="absolute inset-0 bg-[url('img/header_06.png')] bg-cover bg-[40%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
                 <div class="absolute bottom-20 z-10 flex w-full flex-col items-center group-hover:text-stroke">
                     <div class="text-7xl font-num mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">06</div>
+                    <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">Work History</div>
+                </div>
+            </a>
+            <a href="#my-life" class="group relative flex flex-1 cursor-pointer">
+                <div class="absolute inset-0 bg-[url('img/header_07.jpg')] bg-cover bg-[60%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
+                <div class="absolute bottom-20 z-10 flex w-full flex-col items-center group-hover:text-stroke">
+                    <div class="text-7xl font-num mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">07</div>
                     <div class="font-bold transition-transform duration-1000 ease-in-out group-hover:text-lg">My life</div>
                 </div>
             </a>
@@ -187,6 +194,112 @@
                 <div class="text-2xl font-eng mb-8">Qualification</div>
                 <div class="max-w-5xl mx-auto px-12">
                     <div id="qualifications-data" class="grid grid-cols-[200px_1fr] gap-x-6 gap-y-2 text-sm items-baseline font-thin mx-auto w-fit">
+                        <!-- データはJavaScript(JSON) から流す -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Work History -->
+            <section id="workhistory" class="my-4 px-6 py-12">
+                <div class="text-2xl font-eng mb-8">Work history</div>
+                <div class="w-5xl mx-auto px-12">
+                    <div class="hidden">
+                        <!-- 職務経歴 -->
+                        <div id="template-workhistory" class="w-full flex flex-col">
+                            <div class="text-left text-xl border-b-4 border-[#363636] font-bold py-2">
+                                <span class="work-title"></span>
+                            </div>
+                            <div>
+                                <div class="businesses-data p-4">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 職務経歴 業務 -->
+                        <div id="template-business" class="p-4 text-sm">
+                            <div class="flex flex-row">
+                                <div class="acrd-btn-history font-bold flex flex-row cursor-pointer">
+                                    <div class="bg-[#ff3c56] hover:bg-[#c11b31] px-1 py-0.5 mr-2 flex items-center rounded-sm triangle transition-transform duration-500">
+                                        <div class="text-xs">
+                                            <!-- <svg class="h-3 w-3 shrink-0 rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"></path>
+                                            </svg> -->
+                                            ▼
+                                        </div>
+                                    </div>
+                                    <span class="business-title"></span>
+                                </div>
+                                <div class="ml-4">
+                                    <span class="business-from"></span>
+                                    <span>～</span>
+                                    <span class="business-to"></span>
+                                    <span class="text-sm">(<span class="business-ym"></span>)</span>
+                                </div>
+                            </div>
+                            <div class="acrd-cnt-history overflow-hidden transition-[max-height] duration-500 ease-in-out max-h-0">
+                                <div class="p-4 text-sm">
+
+                                    <div class="">
+                                        <div>
+                                            <div>＜業務内容＞</div>
+                                            <div class="business-content p-2"></div>
+                                        </div>
+                                        <div>
+                                            <div>＜実績・取り組み＞</div>
+                                            <div class="business-achievement p-2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 text-left flex flex-col w-full">
+                                        <div class="flex flex-row text-nowrap w-full">
+                                            <div class="flex flex-row w-full">
+                                                <div class="bg-[#363636] text-white px-4 py-2">使用言語・技術</div>
+                                                <div class="p-2 border border-[#363636] grow">
+                                                    <span class="business-technology"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flex flex-row text-nowrap w-full">
+                                            <div class="flex flex-row">
+                                                <div class="bg-[#363636] text-white px-4 py-2">DB</div>
+                                                <div class="p-2 border border-[#363636] min-w-60">
+                                                    <span class="business-database"></span>
+                                                </div>
+                                            </div>
+                                            <div class="flex flex-row grow">
+                                                <div class="bg-[#363636] text-white px-4 py-2">OS</div>
+                                                <div class="p-2 border border-[#363636] text-wrap grow">
+                                                    <span class="business-os"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table class="border-collapse border border-[#363636]">
+                                            <tr class="text-center">
+                                                <th rowspan="2" class="bg-[#363636] text-white px-4 py-2 font-thin">担当工程</th>
+                                                <th class="bg-[#363636] text-white px-4 py-2 font-thin">PM</th>
+                                                <th class="bg-[#363636] text-white px-4 py-2 font-thin">PL</th>
+                                                <th class="bg-[#363636] text-white px-4 py-2 font-thin">要件定義</th>
+                                                <th class="bg-[#363636] text-white px-4 py-2 font-thin">基本設計</th>
+                                                <th class="bg-[#363636] text-white px-4 py-2 font-thin">詳細設計</th>
+                                                <th class="bg-[#363636] text-white px-4 py-2 font-thin">実装開発</th>
+                                                <th class="bg-[#363636] text-white px-4 py-2 font-thin">テスト</th>
+                                                <th class="bg-[#363636] text-white px-4 py-2 font-thin">運用保守</th>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td class="border border-[#363636] px-4 py-2"><span class="business-pm"></span></td>
+                                                <td class="border border-[#363636] px-4 py-2"><span class="business-pl"></span></td>
+                                                <td class="border border-[#363636] px-4 py-2"><span class="business-rd"></span></td>
+                                                <td class="border border-[#363636] px-4 py-2"><span class="business-bd"></span></td>
+                                                <td class="border border-[#363636] px-4 py-2"><span class="business-dd"></span></td>
+                                                <td class="border border-[#363636] px-4 py-2"><span class="business-cd"></span></td>
+                                                <td class="border border-[#363636] px-4 py-2"><span class="business-test"></span></td>
+                                                <td class="border border-[#363636] px-4 py-2"><span class="business-op"></span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="workhistories-data" class="w-full items-baseline font-thin mx-auto ">
                         <!-- データはJavaScript(JSON) から流す -->
                     </div>
                 </div>
