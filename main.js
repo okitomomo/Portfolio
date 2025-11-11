@@ -1,4 +1,5 @@
 import './input.css'
+import {TabulatorFull as Tabulator } from 'https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator_esm.min.mjs';
 
 /**
  * スライドイン、スライドアウト
@@ -70,7 +71,33 @@ window.addEventListener("DOMContentLoaded", () => {
                 count++;
             });
         });
-
+    
+    // Skill Set
+    fetch('data/skills.json')
+         .then(res => res.json())
+         .then(data => {   
+            var table = new Tabulator("#skill-table", {
+                layout:"fitDataStretch",
+                rowHeight:60,
+                data:data,
+                dataTree:true,
+                dataTreeStartExpanded:false,
+                columns:[
+                    {title:"Skill", field:"name", width:200, vertAlign:"middle", formatter:function(cell, formatterParams, onRendered){
+                        if(cell.getData().img) {
+                            const img = document.createElement('img');
+                            img.src = "img/skill_icon/" + cell.getData().img;
+                            img.classList.add('w-8', 'h-8', 'mr-2');
+                            return img.outerHTML + cell.getValue(); 
+                        } else {
+                            return cell.getValue();
+                        }
+                    }},
+                    {title:"Level", field:"level", formatter:"star", cssClass: "star-cell", vertAlign:"middle"},
+                    {title:"Comment", field:"comment", width: 400, vertAlign:"middle", cssClass: ""},
+                ],
+            });
+        });
     // Work history
     fetch('data/work_histories.json')
         .then(res => res.json())
@@ -179,3 +206,65 @@ window.addEventListener("DOMContentLoaded", () => {
 /**
  * アコーディオン
  */
+// function loadLeaderLine() {
+//     return new Promise((resolve, reject) => {
+//         const script = document.createElement('script');
+//         script.src = 'https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js';
+//         script.onload = () => resolve(window.LeaderLine);
+//         script.onerror = reject;
+//         document.body.appendChild(script);
+//     });
+// }
+
+// loadLeaderLine().then(LeaderLine => {
+//     // Slill Set
+//     fetch('data/skills.json')
+//         .then(res => res.json())
+//         .then(data => {
+//             const container = document.getElementById('skills-data');
+            
+//             data.forEach(item => {
+//                 let elmRoot = document.createElement('div');
+//                 let elmRows = [];
+//                 drawSkill(item, null, elmRows);
+//                 elmRows.forEach(elmRow => {
+//                     elmRoot.appendChild(elmRow);
+//                 });
+//                 container.appendChild(elmRoot);
+//             });
+//             document.querySelectorAll('.skill').forEach(skill => {
+//                 if(skill.dataset.parent) {
+//                     const line = new LeaderLine(
+//                         document.getElementById(skill.dataset.parent),
+//                         skill,
+//                         { color: '#ff3c56', size: 2, path: 'straight', endPlug: 'disc' }
+//                     );
+//                     line.position();
+//                 }
+//             });
+//         });
+// });
+
+// function drawSkill(skill, elmParentSkill, elmRows = [], cntNested = 0) {
+//     const tempSkill = document.getElementById('template-skill').cloneNode(true);
+//     tempSkill.id = 'skill-' + skill.name;
+//     if(elmParentSkill) {
+//         tempSkill.dataset.parent = elmParentSkill.id;
+//     }
+//     tempSkill.querySelector('.img-icon').src = 'img/skill_icon/' + skill.img;
+//     tempSkill.querySelector('.skill-name').innerHTML = skill.name;
+
+//     var elmRow;
+//     if(!elmRows[cntNested]) {
+//         elmRow = document.createElement('div');
+//         elmRow.classList.add('flex', 'flex-row','w-full','gap-x-8', 'justify-center', 'py-8'); 
+//         elmRows[cntNested] = elmRow;
+//     }
+//     elmRow = elmRows[cntNested];
+//     elmRow.appendChild(tempSkill);
+    
+//     skill.children.forEach(child => {
+//         drawSkill(child, tempSkill, elmRows, cntNested + 1);
+//     });
+// }
+

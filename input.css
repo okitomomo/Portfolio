@@ -14,3 +14,64 @@
   }
 }
 
+/*Theme the Tabulator element*/
+#skill-table {
+    background-color: #0c0c0c;
+}
+
+/*Theme the header*/
+#skill-table .tabulator-header {
+    background-color: #333;
+    color: #fff;
+    font-family: 'Hanuman serif';
+}
+
+/*Allow column header names to wrap lines*/
+#skill-table .tabulator-header .tabulator-col,
+#skill-table .tabulator-header .tabulator-col-row-handle {
+    background-color: #191919;
+    white-space: normal;
+}
+
+/*Color the table rows*/
+#skill-table .tabulator-tableholder .tabulator-table .tabulator-row {
+    background-color: #363636;
+    color: white;
+    font-weight: 100;
+}
+
+#skill-table .tabulator-tableholder .tabulator-table .tabulator-row .tabulator-cell:nth-child(1) {
+    font-weight: bold;
+}
+
+/*Color even rows*/
+#skill-table .tabulator-tableholder .tabulator-table .tabulator-row:nth-child(even) {
+    background-color: #191919;
+    color: white;
+    font-weight: 100;
+}
+
+
+#skill-table .tabulator-row .tabulator-cell {
+    white-space: normal;
+}
+
+.tabulator .tabulator-cell svg polygon[fill='#FFEA00'] {
+    fill: #ff3c56 !important;
+    stroke: #ff9fac !important;
+}
+.tabulator .tabulator-cell svg polygon {
+    fill: #0c0c0c !important;
+    stroke: #0c0c0c !important;
+}
+
+.tabulator .tabulator-row .tabulator-responsive-collapse-toggle::before {
+    content: "▶"; /* 好きな文字や絵文字に変更 */
+    color: #3b82f6; /* blue-500 */
+}
+
+/* −ボタン（展開後） */
+.tabulator .tabulator-row.tabulator-row-expanded .tabulator-responsive-collapse-toggle::before {
+    content: "▼";
+    color: #3b82f6;
+}
