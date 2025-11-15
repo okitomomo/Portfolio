@@ -11,11 +11,11 @@ window.addEventListener("scroll", () => {
         const inView = rect.top < window.innerHeight - 300 && rect.bottom > 0;
 
         if (inView) {
-            el.classList.remove("opacity-0", "-translate-x-60", "translate-x-60");
+            el.classList.remove("opacity-0", "-translate-x-60", "translate-x-60", "md:-translate-x-60");
         } else {
             // 元の方向に戻す
             if (el.classList.contains("slide-left")) {
-                el.classList.add("opacity-0", "-translate-x-60");
+                el.classList.add("opacity-0", "-translate-x-60", "md:-translate-x-60");
             } else {
                 el.classList.add("opacity-0", "translate-x-60");
             }
@@ -81,13 +81,13 @@ window.addEventListener("DOMContentLoaded", () => {
                 rowHeight:60,
                 data:data,
                 dataTree:true,
-                dataTreeStartExpanded:false,
+                dataTreeStartExpanded:true,
                 columns:[
                     {title:"Skill", field:"name", width:200, vertAlign:"middle", formatter:function(cell, formatterParams, onRendered){
                         if(cell.getData().img) {
                             const img = document.createElement('img');
                             img.src = "img/skill_icon/" + cell.getData().img;
-                            img.classList.add('w-8', 'h-8', 'mr-2');
+                            img.classList.add('w-4','md:w-8', 'h-4', 'md:h-8', 'mr-2');
                             return img.outerHTML + cell.getValue(); 
                         } else {
                             return cell.getValue();
