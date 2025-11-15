@@ -27,6 +27,9 @@ window.addEventListener("scroll", () => {
  * データの流し込み
  */
 window.addEventListener("DOMContentLoaded", () => {
+    // About me
+    document.getElementById('age').innerHTML = getAge() + '歳';
+
     // Qualification
     fetch('data/qualifications.json')
         .then(res => res.json())
@@ -223,7 +226,7 @@ function hideModal(elmBtn) {
     const overlay = document.querySelector('#modal-overlay');
     overlay.classList.toggle('hidden');
     overlay.classList.toggle('fixed');
-    
+
     // スクロール有効化
     document.body.style.overflow = "";
 }
@@ -261,4 +264,22 @@ function appendSkillRow(container, skill, nested = 0) {
     skill._children.forEach(child => {
         appendSkillRow(container, child, nested + 1);
     });
+}
+
+function getAge() {
+    const b = new Date("1992/11/19");
+    const today = new Date();
+
+    let age = today.getFullYear() - b.getFullYear();
+
+    // 誕生日がまだ来てなければ -1
+    const hasBirthdayPassed =
+        (today.getMonth() > b.getMonth()) ||
+        (today.getMonth() === b.getMonth() && today.getDate() >= b.getDate());
+
+    if (!hasBirthdayPassed) {
+        age--;
+    }
+
+    return age;
 }
