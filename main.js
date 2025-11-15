@@ -197,6 +197,37 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 });
 
+function showModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.toggle('hidden');
+    modal.classList.toggle('fixed');
+    const overlay = document.querySelector('#modal-overlay');
+    overlay.classList.toggle('hidden');
+    overlay.classList.toggle('fixed');
+
+    // スクロール無効化
+    document.body.style.overflow = "hidden";
+}
+
+document.querySelectorAll('.btn-close-modal').forEach(elmBtn => {
+    elmBtn.addEventListener('click', () => {
+        hideModal(elmBtn);
+    });
+});
+
+function hideModal(elmBtn) {
+    const modal = elmBtn.closest('.modal');
+    modal.classList.toggle('hidden');
+    modal.classList.toggle('fixed');
+    
+    const overlay = document.querySelector('#modal-overlay');
+    overlay.classList.toggle('hidden');
+    overlay.classList.toggle('fixed');
+    
+    // スクロール有効化
+    document.body.style.overflow = "";
+}
+
 function appendSkillRow(container, skill, nested = 0) {
     const tempSkill = document.getElementById('template-skill-row').cloneNode(true);
     tempSkill.id = '';
@@ -213,9 +244,12 @@ function appendSkillRow(container, skill, nested = 0) {
         }
     });
     tempSkill.querySelector('.skill-comment').innerHTML = skill.comment;
-    tempSkill.querySelector('.btn-comment').addEventListener('click', () => {
-        const comment = tempSkill.querySelector('.skill-comment').innerHTML;
-        alert(comment);
+    tempSkill.querySelector('.btn-comment').addEventListener('click', (e) => {
+        const elmBtn = e.currentTarget;
+        const elmModal = document.getElementById('modal-skill-comment');
+        elmModal.querySelector('.skill-name').innerHTML = elmBtn.closest('tr').querySelector('.skill-name').innerHTML;
+        elmModal.querySelector('.skill-comment').innerHTML = elmBtn.closest('tr').querySelector('.skill-comment').innerHTML;
+        showModal('modal-skill-comment');        
     });
     if(nested > 0) {
         tempSkill.querySelector('.skill-tree').style.marginLeft = nested * 16 + 'px';
