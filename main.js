@@ -74,28 +74,19 @@ window.addEventListener("DOMContentLoaded", () => {
     
     // Skill Set
     fetch('data/skills.json')
-         .then(res => res.json())
-         .then(data => {   
-            var table = new Tabulator("#skill-table", {
-                layout:"fitDataStretch",
-                rowHeight:60,
-                data:data,
-                dataTree:true,
-                dataTreeStartExpanded:true,
-                columns:[
-                    {title:"Skill", field:"name", width:200, vertAlign:"middle", formatter:function(cell, formatterParams, onRendered){
-                        if(cell.getData().img) {
-                            const img = document.createElement('img');
-                            img.src = "img/skill_icon/" + cell.getData().img;
-                            img.classList.add('w-4','md:w-8', 'h-4', 'md:h-8', 'mr-2');
-                            return img.outerHTML + cell.getValue(); 
-                        } else {
-                            return cell.getValue();
-                        }
-                    }},
-                    {title:"Level", field:"level", formatter:"star", cssClass: "star-cell", vertAlign:"middle"},
-                    {title:"Comment", field:"comment", width: 400, vertAlign:"middle", cssClass: ""},
-                ],
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('skills-data');
+            data.forEach(skill => {
+                appendSkillRow(container, skill,  0);
+            });
+            var rowCount = 0;
+            container.querySelectorAll('tr').forEach((elmRow) => {
+                if(rowCount++ % 2 == 0) {
+                    elmRow.querySelectorAll('td').forEach((elmCell) => {
+                        elmCell.classList.remove('bg-[#363636]');
+                    });
+                }
             });
         });
     // Work history
@@ -205,3 +196,35 @@ window.addEventListener("DOMContentLoaded", () => {
             });
         });
 });
+
+function appendSkillRow(container, skill, nested = 0) {
+    const tempSkill = document.getElementById('template-skill-row').cloneNode(true);
+    tempSkill.id = '';
+    tempSkill.classList.remove('hidden');
+    if(skill.img) {
+        tempSkill.querySelector('.skill-img').src = 'img/skill_icon/' + skill.img;
+    } else {
+        tempSkill.querySelector('.skill-img').remove();
+    }
+    tempSkill.querySelector('.skill-name').innerHTML = skill.name;
+    tempSkill.querySelector('.skill-level').querySelectorAll('.fa-star').forEach((item, index) => {
+        if(index < skill.level) {
+            item.classList.add('text-[#ff3c56]');
+        }
+    });
+    tempSkill.querySelector('.skill-comment').innerHTML = skill.comment;
+    tempSkill.querySelector('.btn-comment').addEventListener('click', () => {
+        const comment = tempSkill.querySelector('.skill-comment').innerHTML;
+        alert(comment);
+    });
+    if(nested > 0) {
+        tempSkill.querySelector('.skill-tree').style.marginLeft = nested * 16 + 'px';
+        tempSkill.querySelector('.skill-tree').innerHTML = '┗';
+    }
+    container.appendChild(tempSkill);
+
+    if(!skill._children) return;
+    skill._children.forEach(child => {
+        appendSkillRow(container, child, nested + 1);
+    });
+}

@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Okita Tomohiro's Portfolio</title>
     <!-- Viteが処理するJavaScriptファイルを読み込む -->
-    <link href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css" rel="stylesheet">
-    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+
     <style>
     .star-cell svg {
         display: inline !important;
@@ -149,7 +148,45 @@
             <section id="skill-set" class="px-2 md:px-6 py-8">
                 <div class="text-2xl font-eng text-center md:text-left my-8">Skill Set</div>
                 <div class="p-0 md:p-4">
-                    <div id="skill-table" class="max-w-5xl mx-auto text-xs md:text-sm overflow-y-auto"></div>
+                    <!-- <div id="skill-table" class="max-w-5xl mx-auto text-xs md:text-sm overflow-y-auto"></div> -->
+                    <table class="table-fixed mx-auto text-sm">
+                        <thead>
+                            <tr>
+                                <td class="bg-[#191919] p-2">Skill</td>
+                                <td class="bg-[#191919] p-2">Level</td>
+                                <td class="bg-[#191919] p-2 hidden md:table-cell">Comment</td>
+                                <td class="bg-[#191919] p-2 md:hidden">...</td>
+                            </tr>
+                        </thead>
+                        <tbody id="skills-data">
+                            <tr id="template-skill-row" class="hidden">
+                                <td class="bg-[#363636] py-4 px-2">
+                                    <div class="flex flex-row items-center">
+                                        <div class="skill-tree mr-2"></div>
+                                        <img class="skill-img w-8 h-8 mr-2" src="" alt="">
+                                        <div class="skill-name font-bold"></div>
+                                    </div>
+                                </td>
+                                <td class="bg-[#363636] skill-level p-2 text-nowrap">
+                                    <div class="flex flex-row items-center justify-center">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                </td>
+                                <td class="bg-[#363636] hidden md:table-cell p-2">
+                                    <div class="flex flex-row item-center">
+                                        <div class="skill-comment"></div>
+                                    </div>
+                                </td>
+                                <td class="bg-[#363636] btn-comment pointer-cursor md:hidden p-2">
+                                    <i class="fa-solid fa-comment text-white"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 
@@ -338,7 +375,7 @@
             </section>
 
             <!-- My Life -->
-            <section id="my-life" class="px-2 md:px-6">
+            <section id="my-life" class="px-2 md:px-6 overflow-x-hidden">
                 <div class="text-2xl font-eng text-center md:text-left my-12">My life</div>
                 <div class="relative w-[90%] m-auto px-4 py-12 md:px-12">
                     <!-- 縦線（タイムライン） -->
@@ -387,7 +424,7 @@
         </div>  
         <div class="whitespace-normal break-words"></div>
     </div>   
-    <script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"></script>   
+    <script src="https://kit.fontawesome.com/cfdd046cbb.js" crossorigin="anonymous"></script>
     <script type="module" src="/main.js"></script>
 </body>
 </html>
