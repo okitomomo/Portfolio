@@ -70,7 +70,7 @@
                 </div>
             </a>
             <a href="#my-life" class="group relative flex flex-1 cursor-pointer">
-                <div class="absolute inset-0 bg-[url('img/header_07.jpg')] bg-cover bg-[center_65%] bg-[60%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
+                <div class="absolute inset-0 bg-[url('img/header_07.jpg')] bg-cover bg-[center_65%] md:bg-[60%_center] grayscale brightness-[15%] group-hover:brightness-100 transition-all duration-300"></div>
                 <div class="md:absolute bottom-20 z-10 flex w-full flex-row md:flex-col items-center group-hover:text-stroke">
                     <div class="absolute md:relative text-6xl md:text-7xl font-num p-3 md:p-0 md:mt-60 transition-transform duration-300 ease-in-out group-hover:scale-[1.5]">07</div>
                     <div class="flex items-center justify-center md:block font-thin md:font-bold grow md:grow-0 h-[75px] md:h-auto text-center md:text-left transition-transform duration-1000 ease-in-out group-hover:text-lg">My life</div>
@@ -425,6 +425,8 @@
     </div>   
     <script src="https://kit.fontawesome.com/cfdd046cbb.js" crossorigin="anonymous"></script>
     <script type="module" src="/main.js"></script>
+
+    <!-- モーダル関連 -->
     <div id="modal-skill-comment" class="modal bg-[#0c0c0c] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 p-4 w-[90%] hidden text-white">
         <div class="border-white border-b-2 relative py-4">
             Skill Comment : <span class="skill-name"></span>
@@ -432,11 +434,10 @@
                 <i class="fa-solid fa-xmark"></i>
             </div>
         </div>
-        <div class="skill-comment p-4 leading-normal">
+        <div class="skill-comment p-4 leading-normal font-thin text-sm">
         </div>
     </div>
     <div id="modal-overlay" class="z-30 bg-white opacity-50 hidden top-0 left-0 w-full h-full cursor-pointer">
-        
     </div>
 </body>
 </html>

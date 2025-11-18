@@ -231,6 +231,10 @@ function hideModal(elmBtn) {
     document.body.style.overflow = "";
 }
 
+document.getElementById('modal-overlay').addEventListener('click', () => {
+    hideModal(document.querySelector('.btn-close-modal')); 
+});
+
 function appendSkillRow(container, skill, nested = 0) {
     const tempSkill = document.getElementById('template-skill-row').cloneNode(true);
     tempSkill.id = '';
