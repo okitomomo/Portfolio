@@ -92,6 +92,21 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             });
         });
+    // Production
+    fetch('data/products.json')
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('products-data');
+            data.forEach(product => {
+                const tempProduct = document.getElementById('template-product').cloneNode(true);
+                tempProduct.id = '';
+                tempProduct.querySelector('.product-name').innerHTML = product.name;
+                tempProduct.querySelector('.product-overview').innerHTML = product.overview;
+                tempProduct.querySelector('.product-img').src = 'product/' + product.id + '/thumbnail.png';
+                container.appendChild(tempProduct);
+            });
+        });
+
     // Work history
     fetch('data/work_histories.json')
         .then(res => res.json())

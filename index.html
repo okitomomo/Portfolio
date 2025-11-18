@@ -5,17 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Okita Tomohiro's Portfolio</title>
     <!-- Viteが処理するJavaScriptファイルを読み込む -->
-
-    <style>
-    .star-cell svg {
-        display: inline !important;
-        vertical-align: middle;
-    }
-    .star-cell {
-        white-space: nowrap !important;
-    }
-    </style>
-
 </head>
 <body class="font-def bg-[#0c0c0c] overflow-x-hidden">
     <div class="text-white mx-auto bg-[#0c0c0c] max-w-[1400px] z-10">
@@ -192,49 +181,32 @@
             <!-- Production -->
             <section id="production" class="px-2 md:px-6 py-12">
                 <div class="text-2xl font-eng text-center md:text-left">Production</div>
-                <div class="flex flex-wrap justify-center px-4 py-12 gap-4">
-                    <div class="flex flex-col bg-white text-black min-w-[300px] cursor-pointer">
-                        <div class="bg-gray-700 w-max min-h-32">
-                        </div>
-                        <div class="p-2">
-                            <div class="py-4 font-bold">プロジェクト名折り返し</div>
-                            <div class="text-sm ">
-                                <p>text text text text text text</p>
-                                <p>text text text text</p>
+                <div class="hidden">
+                    <div id="template-product" class="flex flex-col bg-white text-black w-[300px] cursor-pointer">
+                        <a href="">
+                            <div class="bg-gray-700 w-max min-h-32">
+                                <img class="product-img h-fit" src="" alt="">
                             </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col bg-white text-black min-w-[300px]">
-                        <div class="bg-gray-700 w-max min-h-32">
-
-                        </div>
-                        <div class="p-2">
-                            <div class="py-4 font-bold">プロジェクト名折り返し</div>
-                            <div class="text-sm ">
-                                <p>text text text text text text</p>
-                                <p>text text text text</p>
+                            <div class="p-2">
+                                <div class="product-name py-4 font-bold"></div>
+                                <div class="product-overview text-sm ">
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col bg-white text-black min-w-[300px]">
-                        <div class="bg-gray-700 w-max min-h-32">
-
-                        </div>
-                        <div class="p-2">
-                            <div class="py-4 font-bold">プロジェクト名折り返し</div>
-                            <div class="text-sm ">
-                                <p>text text text text text text</p>
-                                <p>text text text text</p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
+                <div id="products-data" class="flex flex-wrap justify-center px-4 py-12 gap-4">
+                    <!-- データはJavaScript(JSON) から流す -->
+                </div>
+                <!-- VIEW MORE -->
+                <!--
                 <div class="flex flex-row justify-center md:justify-end font-eng text-sm">
                     <a class="" href="#blank" onclick="alert('Comming Soon!!');">
                         <div class="relative border-b border-white hover:border-[#ff3c56] pr-6 hover:text-[#ff3c56]
                             after:absolute after:bottom-[-1px] after:right-0 after:h-px after:w-3 after:-rotate-[310deg] after:bg-white after:content-[''] after:origin-right after:hover:bg-[#ff3c56]">VIEW MORE</div>
                     </a>
                 </div>
+                -->
             </section>
 
             <!-- Qualification -->
