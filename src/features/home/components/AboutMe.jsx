@@ -23,7 +23,7 @@ export default function AboutMe() {
             <div className="max-w-5xl mx-auto px-4 md:px-12">
                 <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] gap-x-12 items-center">
                     <div>
-                        <img src="img/profile.png" alt="プロフィール画像" className="rounded-lg shadow-lg max-h-[300px]" />
+                        <img src="/Portfolio/img/profile.png" alt="プロフィール画像" className="rounded-lg shadow-lg max-h-[300px]" />
                     </div>
                     <div className="grid grid-cols-[90px_1fr] gap-x-6 gap-y-2 text-sm items-baseline py-4">
                         <div className="flex justify-between font-bold">

@@ -12,7 +12,7 @@ export default function Skill({ skill, margin }) {
                     { margin > 0 && 
                         <div className="mr-2" style={{ marginLeft: `${ margin }px` }}>┗</div> 
                     }
-                    { skill.img && <img className="skill-img w-8 h-8 mr-2" src={`img/skill_icon/${ skill.img }`} alt="" /> }
+                    { skill.img && <img className="skill-img w-8 h-8 mr-2" src={`/Portfolio/img/skill_icon/${ skill.img }`} alt="" /> }
                     <div className="skill-name font-bold">{ skill.name }</div>
                 </div>
             </td>
