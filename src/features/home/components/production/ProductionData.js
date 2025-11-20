@@ -1,5 +1,4 @@
-[
-
+export const products = [
     {
         "id" : "1",
         "name" : "見積書作成システム",
@@ -32,5 +31,4 @@
             "SQLite"
         ]
     }
-
-]
+];

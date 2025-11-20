@@ -1,5 +1,4 @@
-[
-
+export const skills = [
     {
         "name" : "Frontend",
         "level" : 4,
@@ -215,4 +214,4 @@
         ]
     }
 
-]
+];

@@ -1,4 +1,4 @@
-[
+export const workHistories = [
     {
         "title" : "札幌中小ベンダー (1社目)",
         "contents" : [
@@ -242,4 +242,4 @@
             }
         ]
     }
-]
+];
