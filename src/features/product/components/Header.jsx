@@ -3,7 +3,7 @@ export default function Header() {
         <>
             <div className="flex flex-row font-eng bg-[#272626] p-4">
                 <div className="grow-0">
-                    <a href="/">
+                    <a href="">
                         <div className="text-xl">
                             Portfolio
                         </div>
