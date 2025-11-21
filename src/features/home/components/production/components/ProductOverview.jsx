@@ -1,6 +1,6 @@
 export default function ProductOverview({ product }) {
     return (
-        <a href={`/#product/${product.id }`} className="flex flex-col bg-white text-black w-[300px] cursor-pointer">
+        <a href={`/#/product/${product.id }`} className="flex flex-col bg-white text-black w-[300px] cursor-pointer">
             <div className="bg-gray-700 w-full h-40 overflow-hidden">
                 <img className="w-full h-full object-contain" src={`/Portfolio/product/${ product.id }/thumbnail.png`} alt="" />
             </div>
