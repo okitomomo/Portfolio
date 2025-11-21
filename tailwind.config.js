@@ -1,5 +1,5 @@
 export default {
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './public/**/*.md'],
     theme: { 
       extend: {
         fontFamily: {

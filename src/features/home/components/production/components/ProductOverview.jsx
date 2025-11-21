@@ -1,8 +1,8 @@
 export default function ProductOverview({ product }) {
     return (
-        <a href="" className="flex flex-col bg-white text-black w-[300px] cursor-pointer">
+        <a href={`/#product/${product.id }`} className="flex flex-col bg-white text-black w-[300px] cursor-pointer">
             <div className="bg-gray-700 w-full h-40 overflow-hidden">
-                <img className="w-full h-full object-contain" src={`/Portfolio/img/product/${ product.id }/thumbnail.png`} alt="" />
+                <img className="w-full h-full object-contain" src={`/Portfolio/product/${ product.id }/thumbnail.png`} alt="" />
             </div>
             <div className="p-2">
                 <div className="py-2 font-bold">{ product.name }</div>

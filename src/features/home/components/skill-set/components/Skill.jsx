@@ -1,5 +1,5 @@
-import { useModal } from '../../modal/ModalProvider.jsx';
-import SkillCommentModal from '../../modal/modals/SkillCommentModal.jsx';
+import { useModal } from '../../../../components/modal/ModalProvider.jsx';
+import SkillCommentModal from './SkillCommentModal.jsx';
 
 
 export default function Skill({ skill, margin }) {

@@ -7,7 +7,7 @@ import Qualification from "./components/qualification/Qualification.jsx";
 import WorkHistory from "./components/work-history/WorkHistory.jsx";
 import MyLife from "./components/my-life/MyLife.jsx";
 import Footer from "./components/Footer.jsx";
-import ModalProvider from "./components/modal/ModalProvider.jsx";
+import ModalProvider from "../components/modal/ModalProvider.jsx";
 
 export default function Home() {
     return (
