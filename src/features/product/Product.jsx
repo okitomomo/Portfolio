@@ -6,6 +6,7 @@ import Description from './components/Description.jsx';
 import Technology from './components/technology/Technology.jsx';
 import AppealPoint from './components/AppealPoint.jsx';
 import ModalProvider from '../components/modal/ModalProvider.jsx';
+import ScrollProvider from '../components/ScrollProvider.jsx';
 
 export default function Product() {
     const { id } = useParams();
@@ -18,6 +19,7 @@ export default function Product() {
 
     return (
         <ModalProvider>
+            <ScrollProvider />
             <div className="text-white mx-auto bg-[#0c0c0c] max-w-[1400px] z-10">
                 <Header />
                 <div className="p-6">
