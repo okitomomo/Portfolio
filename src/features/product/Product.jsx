@@ -5,6 +5,7 @@ import Overview from './components/overview/Overview.jsx';
 import Description from './components/Description.jsx';
 import Technology from './components/technology/Technology.jsx';
 import AppealPoint from './components/AppealPoint.jsx';
+import Footer from './components/Footer.jsx';
 import ModalProvider from '../components/modal/ModalProvider.jsx';
 import ScrollProvider from '../components/ScrollProvider.jsx';
 
@@ -37,6 +38,7 @@ export default function Product() {
                             </div>
                         )
                     }
+                    <Footer />
                 </div>
             </div>
         </ModalProvider>
