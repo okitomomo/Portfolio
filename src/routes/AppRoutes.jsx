@@ -6,8 +6,8 @@ export default function AppRoute() {
     return (
         <HashRouter>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/product/:id" element={<Product />} />
+                <Route path="" element={<Home />} />
+                <Route path="product/:id" element={<Product />} />
             </Routes>
         </HashRouter>
     );
