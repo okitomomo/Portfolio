@@ -2,8 +2,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import './ProductSlider.css'
+import { useModal } from '../../../../components/modal/ModalProvider.jsx';
+import ImageModal from '../../../../components/modal/ImageModal.jsx';
 
-export default function ProductSlider() {
+export default function ProductSlider({ product }) {
+  const { openModal } = useModal();
 
   const settings = {
     dots: true,
@@ -22,16 +25,22 @@ export default function ProductSlider() {
         }
       }
     ]
-
   };
 
   return (
     <div className="slider-container w-full">
       <Slider {...settings}>
-        {Array.from({ length: 5 }).map((_, i) => {
+        {product.images.map((image, index) => {
             return (
-                <div className="w-full md:max-w-100">
-                    <img className="w-full h-full object-contain" src={`/Portfolio/product/1/thumbnail.png`} alt="" />
+                <div className="w-full md:w-100 h-96 px-4">
+                    <img 
+                        className="w-full h-full object-contain cursor-pointer" src={`/Portfolio/product/${ product.id }/images/${ image }`} 
+                        alt="" 
+                        onClick={ () => openModal(ImageModal, {
+                            title: product.name, 
+                            src : `/Portfolio/product/${ product.id }/images/${ image }`
+                        })}
+                    />
                 </div>
             );
         })}

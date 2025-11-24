@@ -1,12 +1,16 @@
 export const products = [
     {
-        "id" : "1",
+        "id" : "mitsumori",
         "name" : "見積書作成システム",
         "span" : "2ヶ月",
         "overview" : "見積書・請求書を作成し、Excelで出力するシステム",
         "appeal" : "お客様がシステム開発に明るくないお客様だったため、お客様からのご要望が出てきにくかったですが、現状の業務フローなどを図資料を用いながら擦り合わせし、積極的にご提案することで、大変ご満足いただけるシステムを構築することができました。<br>また、インストーラー形式で配布するなど、リリースやアップデートにもお客様が対応しやすい形で提供することができました。",
         "images" : [
-
+            "home.png",
+            "create.png",
+            "mitsumorisho.png",
+            "seikyusho.png",
+            "mainte.png"
         ],
         "technologies" : [
             {
