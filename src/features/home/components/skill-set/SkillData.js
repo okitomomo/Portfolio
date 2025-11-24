@@ -105,7 +105,7 @@ export const skills = [
                         "name" : "Laravel",
                         "level" : 5,
                         "comment" : "PHPの業務はすべてLaravelで行いました。カスタマイズなどにも慣れています。",
-                        "img" : "Laravel.png",
+                        "img" : "laravel.png",
                         "_children" : []
                     }
                 ]
